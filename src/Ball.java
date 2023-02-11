@@ -2,8 +2,8 @@ public class Ball {
     public Rect rect;
     public Rect leftPaddle, rightPaddle;
 
-    private double vy = 10.0;
-    private double vx = -180.0;
+    private double vy = Constants.BALL_VELOCITY_X;
+    private double vx = Constants.BALL_VELOCITY_Y;
     //velocity x, y
 
     public Ball(Rect rect, Rect leftPaddle, Rect rightPaddle) {
@@ -14,7 +14,7 @@ public class Ball {
 
     public void update(double dt) {
         if (vx < 0) {
-            if (this.rect.x <= this.leftPaddle.x + this.leftPaddle.width && this.rect.x >= this.leftPaddle.x &&
+            if (this.rect.x <= this.leftPaddle.x + this.leftPaddle.width && this.rect.x + this.rect.width >= this.leftPaddle.x &&
                 this.rect.y >= this.leftPaddle.y && this.rect.y <= this.leftPaddle.y + this.leftPaddle.height) {
                 this.vx *= -1;
                 this.vy *= -1;
@@ -22,7 +22,7 @@ public class Ball {
                 System.out.println("You lost");
             }
         } else if (vx > 0) {
-            if (this.rect.x + this.rect.width <= this.rightPaddle.x && this.rect.x <= this.rightPaddle.x + this.rightPaddle.width &&
+            if (this.rect.x + this.rect.width >= this.rightPaddle.x && this.rect.x <= this.rightPaddle.x + this.rightPaddle.width &&
                     this.rect.y >= this.rightPaddle.y && this.rect.y <= this.rightPaddle.y + this.rightPaddle.height) {
                 this.vx *= -1;
                 this.vy *= -1;
@@ -36,7 +36,7 @@ public class Ball {
                 this.vy *= -1;
             }
         } else if (vy < 0) {
-            if (this.rect.y <0) {
+            if (this.rect.y < Constants.TOOLBAR_HEIGHT) {
                 this.vy *= -1;
             }
         }
