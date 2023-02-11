@@ -1,2 +1,2 @@
 # Pong
-Pong en java
+Pong en Java
