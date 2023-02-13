@@ -71,6 +71,20 @@ public class Ball {
             this.rect.y = Constants.SCREEN_HEIGHT / 2.0;
             this.vx = -Constants.BALL_VELOCITY_X;
             this.vy = -Constants.BALL_VELOCITY_Y;
+            if (rightScore >= Constants.WIN_SCORE) {
+                System.out.println("Right player won !");
+            }
+        } else if (this.rect.x > rightPaddle.x + rightPaddle.width) {
+            int leftScore = Integer.parseInt(leftScoreText.text);
+            leftScore ++;
+            leftScoreText.text = "" + leftScore;
+            this.rect.x = Constants.SCREEN_WIDTH / 2.0;
+            this.rect.y = Constants.SCREEN_HEIGHT / 2.0;
+            this.vx = Constants.BALL_VELOCITY_X;
+            this.vy = Constants.BALL_VELOCITY_Y;
+            if (leftScore >= Constants.WIN_SCORE) {
+                System.out.println("Left player won !");
+            }
         }
     }
 }
