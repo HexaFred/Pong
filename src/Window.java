@@ -10,6 +10,7 @@ public class Window extends JFrame implements Runnable {
     public AIController aiController;
     public Ball ball;
     public Text leftScoreText,rightScoreText;
+    public boolean isRunning = true;
 
     public Window(){
         this.setSize(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
@@ -63,14 +64,20 @@ public class Window extends JFrame implements Runnable {
         ballRect.draw(g2);
     }
 
+    public void stop(){
+        isRunning = false;
+    }
+
     public void run() {
         double lastFrameTime = 0.0;
-        while (true){
+        while (isRunning){
             double time = Time.getTime();
             double deltaTime = time - lastFrameTime;
             lastFrameTime = time;
 
             update(deltaTime);
         }
+        this.dispose();
+        return;
     }
 }

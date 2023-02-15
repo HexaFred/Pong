@@ -72,7 +72,7 @@ public class Ball {
             this.vx = -Constants.BALL_VELOCITY_X;
             this.vy = -Constants.BALL_VELOCITY_Y;
             if (rightScore >= Constants.WIN_SCORE) {
-                System.out.println("Right player won !");
+                Main.changeState(2);
             }
         } else if (this.rect.x > rightPaddle.x + rightPaddle.width) {
             int leftScore = Integer.parseInt(leftScoreText.text);
@@ -83,7 +83,7 @@ public class Ball {
             this.vx = Constants.BALL_VELOCITY_X;
             this.vy = Constants.BALL_VELOCITY_Y;
             if (leftScore >= Constants.WIN_SCORE) {
-                System.out.println("Left player won !");
+                Main.changeState(2);
             }
         }
     }
