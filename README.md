@@ -1,8 +1,2 @@
 # Pong
-Pong en Java (en cours)
-
-A faire :
-
-Menu
-
-Corrections
+Pong programmé en Java en utilisant le framework JavaFX.
